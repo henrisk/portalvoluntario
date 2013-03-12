@@ -1,6 +1,6 @@
 <?php
-return array(
+return array (
 		'application' => array (
-			'title' => 'Portal do Voluntário'
-		)
+			'title' => 'Portal do Voluntário',
+		),
 );

@@ -91,6 +91,7 @@ if (isset($_SERVER['KOHANA_ENV']))
  */
 Kohana::init(array(
 	'base_url'   => '/',
+	'index_file' => FALSE,
 ));
 
 /**
@@ -117,6 +118,8 @@ Kohana::modules(array(
 	// 'unittest'   => MODPATH.'unittest',   // Unit testing
 	// 'userguide'  => MODPATH.'userguide',  // User guide and API documentation
 	));
+
+Cookie::$salt = '1234567890';
 
 /**
  * Set the routes. Each route must have a minimum of a name, a URI and a set of
