@@ -5,7 +5,8 @@ return array (
 			'connection' => array (
 				'hostname' => 'localhost',
 				'username' => 'root',
-				'password' => 'root'
+				'password' => 'root',
+				'database' => 'portalvoluntario',
 			)
 		)
 );

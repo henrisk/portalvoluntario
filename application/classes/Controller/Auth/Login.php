@@ -31,7 +31,27 @@ class Controller_Auth_Login extends Controller {
 	 * Realiza a lógica de autenticação, permitindo/barrando o acesso do usuário ao restante do sistema
 	 */
 	public function action_authenticate() {
-		//Implementar lógica de autenticação
-		$this->redirect('Auth_Login', 302);
+		$strUser = $this->request->post('txtUser');
+		$strPassword = $this->request->post('txtPassword');
+		
+		$userModel = Model::factory('user');
+		$arrResult = $userModel->authenticate($strUser, $strPassword);
+		
+		if(!is_array($arrResult) || count($arrResult) == 0)
+			$this->redirect('Auth_Login', 302);
+		else {
+			$session = Session::instance();
+			$session->set('user', $arrResult[0]);
+			$this->redirect('Welcome');
+		}
+	}
+	
+	/**
+	 * Realiza a lógica de logout do usuário
+	 */
+	public function action_logout() {
+		$session = Session::instance();
+		$session->set('user', null);
+		$this->redirect('Welcome');
 	}
 }
