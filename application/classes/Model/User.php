@@ -1,14 +1,17 @@
 <?php defined('SYSPATH') or die('No direct script access.');
-Class Model_User extends Model_Database {
+Class Model_User extends Model_Abstract {
+	
+	protected function getTableName() {
+		return 'User';
+	}
 	
 	public function authenticate($strLogin, $strPassword) {
 		$strSQL = '
 			SELECT
 				u.id,
-				u.name,
 				u.login
 			FROM
-				user u
+				' . $this->getTableName() . ' u
 			WHERE
 				u.login = ' . $this->_db->escape($strLogin) . '
 				AND u.password = md5(' . $this->_db->escape($strPassword) . ')				
