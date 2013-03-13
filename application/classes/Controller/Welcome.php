@@ -6,5 +6,6 @@ class Controller_Welcome extends Controller_Template {
 	
 	public function action_index() {
 		$this->template->body = View::factory('welcome');
+		$this->template->body->titulo2 = 'teste';
 	}
 }
