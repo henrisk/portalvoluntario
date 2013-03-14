@@ -7,5 +7,8 @@ echo '<br/>';
 echo 'Descrição: ';
 echo Form::input('txtDescription', (isset($objData) ? $objData->description : ''));
 echo '<br />';
+echo 'Chave: ';
+echo Form::input('txtKey', (isset($objData) ? $objData->appKey : ''));
+echo '<br />';
 echo Form::submit('btnSalvar', 'Salvar');
 echo Form::close();

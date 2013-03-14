@@ -25,16 +25,19 @@ class Controller_SYS_Profile extends Controller_PV {
 	}
 	
 	public function action_save() {
-		$arrData = new stdClass();
-		$arrData->id = $this->request->post('hddId', null);
-		$arrData->name = $this->request->post('txtName');
-		$arrData->description = $this->request->post('txtDescription');
+		$objData = new stdClass();
+		$objData->id = $this->request->post('hddId');
+		$objData->name = $this->request->post('txtName');
+		$objData->description = $this->request->post('txtDescription');
+		$objData->appKey = $this->request->post('txtKey');
 		
 		$modelProfile = Model::factory('Profile');
-		if($arrData->id == null)
-			$modelProfile->insert($arrData);
+		if($objData->id == null) {
+			unset($objData->id);
+			$modelProfile->insert($objData);
+		}
 		else
-			$modelProfile->update($arrData);
+			$modelProfile->update($objData);
 		
 		$this->redirect('SYS_Profile');
 	}
