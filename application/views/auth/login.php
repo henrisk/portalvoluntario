@@ -5,14 +5,14 @@
 	</head>
 	<body>
 		<?php 
-			echo form::open($action, array('method' => 'post'));
+			echo Form::open($action, array('method' => 'post'));
 			echo 'Usuário:<br />';
-			echo form::input('txtUser');
+			echo Form::input('txtUser');
 			echo '<br />Senha:<br />';
-			echo form::password('txtPassword');
+			echo Form::password('txtPassword');
 			echo '<br /><br />';
-			echo form::submit('btnLogin', 'Login');
-			echo form::close();
+			echo Form::submit('btnLogin', 'Login');
+			echo Form::close();
 		?>
 	</body>
 </html>
