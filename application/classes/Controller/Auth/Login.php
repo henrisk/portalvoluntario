@@ -24,7 +24,7 @@ class Controller_Auth_Login extends Controller {
 	private function loadConfig() {
 		$config = Kohana::$config->load('default.application');
 		$this->view->title = $config['title'];
-		$this->view->action = URL::site('auth_login/authenticate');
+		$this->view->action = URL::site('Auth_Login/authenticate');
 	}
 	
 	/**

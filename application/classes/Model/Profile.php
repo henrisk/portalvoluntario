@@ -1,7 +1,7 @@
 <?php defined('SYSPATH') or die('No direct script access.');
-Class Model_Menu extends Model_Abstract {
+Class Model_Profile extends Model_Abstract {
 	
-	public function getTableName() {
+	public function getTable() {
 		return 'Profile';
 	}
 }
