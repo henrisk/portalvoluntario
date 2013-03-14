@@ -19,9 +19,9 @@ USE `portalvoluntario`;
 
 /*Table structure for table `menu` */
 
-DROP TABLE IF EXISTS `menu`;
+DROP TABLE IF EXISTS `Menu`;
 
-CREATE TABLE `menu` (
+CREATE TABLE `Menu` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `path` varchar(200) NOT NULL,
@@ -29,13 +29,13 @@ CREATE TABLE `menu` (
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `menu` */
+/*Data for the table `Menu` */
 
-/*Table structure for table `menuprofile` */
+/*Table structure for table `MenuProfile` */
 
-DROP TABLE IF EXISTS `menuprofile`;
+DROP TABLE IF EXISTS `MenuProfile`;
 
-CREATE TABLE `menuprofile` (
+CREATE TABLE `MenuProfile` (
   `menuId` int(10) unsigned NOT NULL,
   `profileId` int(10) unsigned NOT NULL,
   PRIMARY KEY (`menuId`,`profileId`),
@@ -44,13 +44,13 @@ CREATE TABLE `menuprofile` (
   CONSTRAINT `FK_menuprofile_profile` FOREIGN KEY (`profileId`) REFERENCES `profile` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `menuprofile` */
+/*Data for the table `MenuProfile` */
 
-/*Table structure for table `organization` */
+/*Table structure for table `Organization` */
 
-DROP TABLE IF EXISTS `organization`;
+DROP TABLE IF EXISTS `Organization`;
 
-CREATE TABLE `organization` (
+CREATE TABLE `Organization` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `userId` int(10) unsigned NOT NULL,
   `name` varchar(100) NOT NULL,
@@ -62,41 +62,41 @@ CREATE TABLE `organization` (
   CONSTRAINT `FK_organization_user` FOREIGN KEY (`userId`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `organization` */
+/*Data for the table `Organization` */
 
-/*Table structure for table `profile` */
+/*Table structure for table `Profile` */
 
-DROP TABLE IF EXISTS `profile`;
+DROP TABLE IF EXISTS `Profile`;
 
-CREATE TABLE `profile` (
+CREATE TABLE `Profile` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `name` varchar(100) NOT NULL,
   `description` varchar(500) DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `profile` */
+/*Data for the table `Profile` */
 
-/*Table structure for table `user` */
+/*Table structure for table `User` */
 
-DROP TABLE IF EXISTS `user`;
+DROP TABLE IF EXISTS `User`;
 
-CREATE TABLE `user` (
+CREATE TABLE `User` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `login` varchar(100) NOT NULL,
   `password` char(32) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
-/*Data for the table `user` */
+/*Data for the table `User` */
 
-insert  into `user`(`id`,`login`,`password`) values (1,'henrisk','202cb962ac59075b964b07152d234b70');
+insert  into `User`(`id`,`login`,`password`) values (1,'henrisk','202cb962ac59075b964b07152d234b70');
 
-/*Table structure for table `userprofile` */
+/*Table structure for table `UserProfile` */
 
-DROP TABLE IF EXISTS `userprofile`;
+DROP TABLE IF EXISTS `UserProfile`;
 
-CREATE TABLE `userprofile` (
+CREATE TABLE `UserProfile` (
   `userId` int(10) unsigned NOT NULL,
   `profileId` int(10) unsigned NOT NULL,
   PRIMARY KEY (`userId`,`profileId`),
@@ -105,13 +105,13 @@ CREATE TABLE `userprofile` (
   CONSTRAINT `FK_userprofile_user` FOREIGN KEY (`userId`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `userprofile` */
+/*Data for the table `UserProfile` */
 
-/*Table structure for table `volunteer` */
+/*Table structure for table `Volunteer` */
 
-DROP TABLE IF EXISTS `volunteer`;
+DROP TABLE IF EXISTS `Volunteer`;
 
-CREATE TABLE `volunteer` (
+CREATE TABLE `Volunteer` (
   `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
   `userId` int(10) unsigned NOT NULL,
   `name` varchar(100) NOT NULL,
@@ -122,7 +122,7 @@ CREATE TABLE `volunteer` (
   CONSTRAINT `FK_volunteer_user` FOREIGN KEY (`userId`) REFERENCES `user` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-/*Data for the table `volunteer` */
+/*Data for the table `Volunteer` */
 
 /*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
 /*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;

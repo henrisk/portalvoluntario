@@ -34,7 +34,7 @@ class Controller_Auth_Login extends Controller {
 		$strUser = $this->request->post('txtUser');
 		$strPassword = $this->request->post('txtPassword');
 		
-		$userModel = Model::factory('user');
+		$userModel = Model::factory('User');
 		$arrResult = $userModel->authenticate($strUser, $strPassword);
 		
 		if(!is_array($arrResult) || count($arrResult) == 0)
