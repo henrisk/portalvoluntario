@@ -6,4 +6,12 @@ class Controller_Welcome extends Controller_PV {
 		$this->template->body = View::factory('welcome');
 		$this->template->body->titulo2 = 'teste';
 	}
+	
+	public function action_get_index() {
+		$arrTeste = array(
+			'response' => 'oi'
+		);
+		
+		echo json_encode($arrTeste);
+	}
 }

@@ -3,7 +3,7 @@
 class Controller_PV extends Controller_Template {
 
 	public $template = 'template/site';
-	
+
 	public function before() {
 		parent::before();
 		$this->loadConfig();
@@ -18,7 +18,12 @@ class Controller_PV extends Controller_Template {
 	}
 	
 	private function loadConfig() {
-		$appConfig = Kohana::$config->load('default.application');
-		$this->template->title = $appConfig['title'];
+		$req = $this->request;
+		if(Helper_App::isMobile($req::$user_agent))
+			$this->template = View::factory('template/mobile');
+		else {
+			$appConfig = Kohana::$config->load('default.application');
+			$this->template->title = $appConfig['title'];
+		}
 	}
 }

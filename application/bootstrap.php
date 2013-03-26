@@ -121,12 +121,41 @@ Kohana::modules(array(
 
 Cookie::$salt = '1234567890';
 
+
+// Route::set('rest-api', 'rest/(<controller>(/<action>(/<id>)))')
+// 	->filter(function($route, $params, $request) {
+// 		$params['action'] = strtolower($request->method()) . '_' . $params['action'];
+// 		return $params;
+// 	})
+// 	->defaults(array(
+// 			'controller' => 'welcome',
+// 			'action' => 'index',
+// 	));
+
 /**
  * Set the routes. Each route must have a minimum of a name, a URI and a set of
  * defaults for the URI.
  */
 Route::set('default', '(<controller>(/<action>(/<id>)))')
+	->filter(function($route, $params, $request) {
+		if(Helper_App::isMobile($request::$user_agent))
+			$params['action'] = strtolower($request->method()) . '_' . $params['action'];
+		
+		return $params;
+	})
 	->defaults(array(
 		'controller' => 'welcome',
 		'action'     => 'index',
 	));
+
+// Route::set('rest', '<directory>(/<controller>(/<action>(/<id>)))', array('directory' => '(rest|Rest)'))
+// // 	->filter(function($route, $params, $request) {
+// // 		$params['action'] = strtolower($request->method()) . '_' . $params['action'];
+// // 		echo Debug::dump($params);
+// // 		return $params;
+// // 	})
+// 	->defaults(array(
+// 			'controller' => 'welcome',
+// 			'action' => 'index',
+// 	));
+	
