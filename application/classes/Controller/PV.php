@@ -2,6 +2,7 @@
 
 class Controller_PV extends Controller_Template {
 
+	public $abc = '123';
 	public $template = 'template/site';
 	public $teste = 'a';
 
