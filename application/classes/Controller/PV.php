@@ -26,4 +26,6 @@ class Controller_PV extends Controller_Template {
 			$this->template->title = $appConfig['title'];
 		}
 	}
+	
+	
 }
