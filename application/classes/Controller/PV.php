@@ -18,6 +18,7 @@ class Controller_PV extends Controller_Template {
 	}
 	
 	private function loadConfig() {
+		
 		$req = $this->request;
 		if(Helper_App::isMobile($req::$user_agent))
 			$this->template = View::factory('template/mobile');
@@ -26,6 +27,4 @@ class Controller_PV extends Controller_Template {
 			$this->template->title = $appConfig['title'];
 		}
 	}
-	
-	
 }
