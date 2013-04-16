@@ -3,6 +3,7 @@
 class Controller_PV extends Controller_Template {
 
 	public $template = 'template/site';
+	public $teste = 'a';
 
 	public function before() {
 		parent::before();
@@ -18,7 +19,6 @@ class Controller_PV extends Controller_Template {
 	}
 	
 	private function loadConfig() {
-		
 		$req = $this->request;
 		if(Helper_App::isMobile($req::$user_agent))
 			$this->template = View::factory('template/mobile');
