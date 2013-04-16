@@ -5,6 +5,7 @@ class Controller_PV extends Controller_Template {
 	public $template = 'template/site';
 	
 	public function before() {
+		
 		parent::before();
 		$this->loadConfig();
 		$this->validateUser();
